@@ -633,3 +633,17 @@ body {
   background: #ddd;
   border-radius: 4px;
 }
+
+.no-messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #999;
+  font-size: 1rem;
+}
+
+.no-messages p {
+  text-align: center;
+  padding: 20px;
+}

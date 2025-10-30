@@ -109,21 +109,27 @@ export default function MessageArea({ selectedUser, session }) {
       </div>
 
       <div className="messages-list">
-        {messages.map((msg, idx) => (
-          <div 
-            key={idx} 
-            className={`message ${msg.sender_id === session.user.id ? 'message-sent' : 'message-received'}`}
-          >
-            <div className="message-bubble">
-              <p className="message-text">{msg.message}</p>
-              <span className="message-time">
-                {new Date(msg.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-              </span>
-            </div>
+        {messages.length === 0 ? (
+          <div className="no-messages">
+            <p>No messages yet. Start the conversation!</p>
           </div>
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
+        ) : (
+          messages.map((msg, idx) => (
+            <div 
+              key={idx} 
+              className={`message ${msg.sender_id === session.user.id ? 'message-sent' : 'message-received'}`}
+            >
+              <div className="message-bubble">
+                <p className="message-text">{msg.message}</p>
+                <span className="message-time">
+                  {new Date(msg.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                </span>
+              </div>
+            </div>
+          ))
+        )}
+  <div ref={messagesEndRef} />
+</div>
 
       <div className="message-input-container">
         <input
