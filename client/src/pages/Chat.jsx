@@ -7,12 +7,13 @@ export default function Chat({ session: initialSession }) {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
 
   const fetchUsers = async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) return;
-      const response = await fetch('http://localhost:4000/users', {
+      const response = await fetch(`${API_BASE_URL}/users`, {
         headers: { Authorization: `Bearer ${session.access_token}` },
       });
       const data = await response.json();

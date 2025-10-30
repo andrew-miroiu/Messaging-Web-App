@@ -11,6 +11,7 @@ export default function MessageArea({ selectedUser, session }) {
   const [input, setInput] = useState("");
   const [currentConversation, setCurrentConversation] = useState(null);
   const messagesEndRef = useRef(null);
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -21,7 +22,7 @@ export default function MessageArea({ selectedUser, session }) {
   const fetchMessagesFromBackend = async (selectedUser) => {
     if (!session) return;
     try {
-      const res = await fetch(`http://localhost:4000/messages/${selectedUser.id}`, {
+      const res = await fetch(`${API_BASE_URL}/messages/${selectedUser.id}`, {
         headers: { Authorization: `Bearer ${session.access_token}` },
       });
       const data = await res.json();
@@ -62,7 +63,7 @@ export default function MessageArea({ selectedUser, session }) {
   const handleSend = async () => {
     if (!input.trim() || !currentConversation || !session) return;
     try {
-      const res = await fetch(`http://localhost:4000/messages`, {
+      const res = await fetch(`${API_BASE_URL}/messages`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
