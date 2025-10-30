@@ -421,7 +421,7 @@ body {
   padding: 12px 16px;
   border: 2px solid #e0e0e0;
   border-radius: 24px;
-  font-size: 1rem;
+  font-size: 16px;
   outline: none;
   transition: border-color 0.3s;
 }
@@ -629,6 +629,10 @@ body {
 
   .message-header {
     padding-left: 60px;
+  }
+
+  .message-input {
+    font-size: 16px !important;
   }
 }
 
