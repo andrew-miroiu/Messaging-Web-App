@@ -315,6 +315,7 @@ body {
   display: flex;
   align-items: center;
   gap: 15px;
+  flex-shrink: 0;
 }
 
 .message-header-avatar {
@@ -396,12 +397,14 @@ body {
 
 /* Message Input */
 .message-input-container {
-  padding: 20px;
+  padding: 15px;
   background: white;
   border-top: 1px solid #e0e0e0;
   display: flex;
   gap: 12px;
   align-items: center;
+  flex-shrink: 0;
+  min-height: 70px;
 }
 
 .message-input {
@@ -529,18 +532,19 @@ body {
   }
 
   .message-header {
-    padding: 15px;
+    padding: 12px 15px;
     padding-left: 70px; /* Make room for burger menu */
+    min-height: 60px;
   }
 
   .message-header-avatar {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
   }
 
   .message-header-name {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .messages-list {
@@ -632,18 +636,4 @@ body {
 .messages-list::-webkit-scrollbar-thumb {
   background: #ddd;
   border-radius: 4px;
-}
-
-.no-messages {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  color: #999;
-  font-size: 1rem;
-}
-
-.no-messages p {
-  text-align: center;
-  padding: 20px;
 }
