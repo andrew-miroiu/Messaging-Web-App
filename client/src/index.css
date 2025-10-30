@@ -112,6 +112,7 @@ body {
 .chat-container {
   display: flex;
   height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile browsers */
   overflow: hidden;
   position: relative;
 }
@@ -305,6 +306,8 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  max-height: 100vh;
+  max-height: 100dvh;
 }
 
 /* Message Header */
@@ -457,6 +460,12 @@ body {
 
 /* Mobile */
 @media (max-width: 768px) {
+  /* Fix for iOS Safari bottom bar */
+  .chat-container {
+    height: 100vh;
+    height: 100dvh;
+  }
+
   /* Show burger menu */
   .burger-menu {
     display: flex;
